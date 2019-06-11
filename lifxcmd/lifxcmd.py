@@ -68,7 +68,6 @@ def main():
         lights = [light for light in l.devices if light.get_label() in args.light.split(",")]
     else:
         lights = l.devices
-    print(lights)
 
     for light in lights:
         if color is not None:
