@@ -68,12 +68,14 @@ def main():
         lights = [light for light in l.devices if light.get_label() in args.light.split(",")]
     else:
         lights = l.devices
+    print(lights)
 
-    if args.toggle_power:
-        for light in lights:
+    for light in lights:
+        if color is not None:
+            light.set_color(color)
+        if args.toggle_power:
             light.set_power(not light.get_power())
-    elif args.power is not None:
-        for light in lights:
+        elif args.power is not None:
             light.set_power(args.power)
 
     return 0
