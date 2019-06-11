@@ -8,7 +8,7 @@ setup(
         "COLOUR": ["colour>=0.1.5"]
         },
     entry_points = {
-        "console_scripts": ['lifx = lifxcmd.lifxcmd:main']
+        "console_scripts": ['lifxcmd = lifxcmd.lifxcmd:main']
         },
     version = "1",
     description = "A Python program that allows easy control of all bulbs on a network, or a specific bulb if required",
