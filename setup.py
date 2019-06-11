@@ -10,7 +10,7 @@ setup(
     entry_points = {
         "console_scripts": ['lifxcmd = lifxcmd.lifxcmd:main']
         },
-    version = "3",
+    version = "4",
     description = "A Python program that allows easy control of all bulbs on a network, or a specific bulb if required",
     author = "Steven Smith",
     author_email = "stevensmith.ome@gmail.com",

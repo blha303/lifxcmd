@@ -46,11 +46,12 @@ def main():
     else:
         color = None
 
-    if not args.light and args.power is not None:
+    if not args.light:
         # fast mode
         if color:
             l.set_color_all_lights(color, rapid=True)
-        l.set_power_all_lights(args.power, rapid=True)
+        if args.power is not None:
+            l.set_power_all_lights(args.power, rapid=True)
         return 0
 
     # slow mode
