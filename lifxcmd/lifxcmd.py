@@ -36,6 +36,7 @@ def main():
     Specify color in form HHHHSSSSBBBB,KKKK, where H,S,B are hexadecimal and K is an optional decimal between 2500 and 9000 defaulting to 9000, representing hue/saturation/brightness/Kelvin.
     Alternatively, install colour from pip and use any string it supports. You can still specify Kelvin with `,KKKK` after a given word, as colour does not support Kelvin.
     Keep in mind that setting color does not affect power, you'll still need to turn power on.""")
+    parser.add_argument("-g", "--get-color", help="Prints current color for minor edits", action="store_true")
     if len(sys.argv[1:]) == 0:
         parser.print_help()
         parser.exit()
@@ -54,6 +55,11 @@ def main():
 
     # slow mode
     l.discover_devices()
+    if args.get_color:
+        for light in l.devices:
+            H,S,B,K = light.get_color()
+            H,S,B = map(lambda x: hex(x)[2:].zfill(4),(H,S,B))
+            print("{}: {}{}{},{}".format(light.get_label(), H,S,B,K))
     if args.list_lights:
         print("\n".join(light.get_label() for light in l.devices))
         return 0

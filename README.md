@@ -16,7 +16,7 @@ Usage
 -----
 
 ```
-usage: lifxcmd [-h] [-b LIGHT] [-B] [-p {off,on}] [-P] [-c COLOR]
+usage: lifxcmd [-h] [-b LIGHT] [-B] [-p {off,on}] [-P] [-c COLOR] [-g]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -39,4 +39,5 @@ optional arguments:
                         after a given word, as colour does not support Kelvin.
                         Keep in mind that setting color does not affect power,
                         you'll still need to turn power on.
+  -g, --get-color       Prints current color for minor edits
 ```
